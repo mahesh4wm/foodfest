@@ -1,0 +1,68 @@
+
+<div *ngIf="viewProduct">
+<mat-card>
+        <div class="container-fluied">
+                <div class="row">
+                        <div class="col-12">
+        <button (click)="addProduct()" style="float: right;" type="button" class="btn btn-success btn-lg">Create product</button>
+</div>
+</div>
+       </div>
+</mat-card>
+
+<mat-card >
+        <div class="container-fluid">
+                <div class="row">
+                  <div *ngFor='let product of products' class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="width:100%;height:100%;border: 55px;">
+                     <div  class="card" style="width:100%;height:100%;margin-bottom:  15px;">
+                        <img class="card-img-top" src={{product.productImage}} alt="Card image" style="width:100%;height:150px" >
+                        <div class="card-body">
+                           <!-- <img src={{product.productImage}} alt=""> -->
+                         <div style="display:flex;widows:100%;">
+                                        <button mat-mini-fab color="basic">
+                                                        <mat-icon aria-label="Example icon-button with a heart icon">create</mat-icon>
+                                        </button>
+                                        <button mat-mini-fab style="background-color: white;color:green">
+                                                        <mat-icon aria-label="Example icon-button with a heart icon">done</mat-icon>
+                                        </button>
+                                        <button  mat-mini-fab style="background-color:white;color: red">
+                                                        <mat-icon  aria-label="Example icon-button with a heart icon">delete_forever</mat-icon>
+                                        </button>
+                           
+                        </div>
+                         </div>
+                     </div>
+                  </div>
+                </div>
+        </div>
+</mat-card>
+</div>
+
+<div class="center" *ngIf="createProduct">
+        <div >
+        <mat-card >
+                <!-- <mat-card style="background-color: green;">
+                <h1 style="text-align: center;color: white;display: inline-flex">Create product</h1>
+               </mat-card> -->
+               <mat-card-header class="heading1">Seller Registration 
+                </mat-card-header>
+                        <form >
+                        <mat-form-field style="width:100%;"class="formField">
+                           <input class="formField" style="font-weight:light" id="ts" name="fname" matInput placeholder="Product Type"  > 
+                        </mat-form-field>
+                        <mat-form-field class="formField" style="width:100%">
+                          <input   matInput placeholder="Product SubType"  >
+                        </mat-form-field>
+                                              <mat-form-field class="formField" style="width:100%">
+                                                  <input   matInput placeholder="Product name"  >
+                                              </mat-form-field>
+                                              <mat-form-field class="formField" style="width:100%">
+                                                  <input   matInput placeholder="product image" >
+                                              </mat-form-field>
+                                              <button mat-raised-button style="background-color: green;color:white">Add product</button>
+                                              <button (click)="createCancel()" mat-raised-button style="background-color: orangered;color:white;margin-left: 5px">Cancle</button>
+                                            </form>       
+        </mat-card> 
+
+</div>
+</div>

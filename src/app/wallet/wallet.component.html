@@ -1,0 +1,42 @@
+ <div class="container-fluid center" *ngIf="viewWallet" >
+ <div class="row">
+  <div class="col-12" >
+   <mat-card style="margin-left: 300px;margin-right: 300px;margin-top: 100px;display:inline">
+     <h1 style="background-color: purple;justify-content: center" ><mat-icon style="color: white;font-size:80px" >account_balance_wallet</mat-icon></h1>
+     <h2 style="margin-left:30%;margin-right:30%;"><span>Amount</span><span>:250</span></h2>
+     <button mat-raised-button style="background-color: green;color:white" (click)="addMoney()">Add Amount</button>
+   </mat-card>
+  </div>
+</div>
+</div>
+<div class="center" *ngIf="addAmount" >
+  <mat-card>
+    <mat-card style="background-color: purple;color: white;text-align: center;">
+    Add Amount to Wallet
+  </mat-card>
+    <form >
+
+        <mat-form-field style="width:100%;"class="formField">
+                <input class="formField" style="font-weight:light" id="ts" name="fname" matInput placeholder="Account Number"  >
+                
+              </mat-form-field>
+            
+              <mat-form-field class="formField" style="width:100%">
+                  <input   matInput placeholder="Money"  >
+              </mat-form-field>
+             
+              <button mat-raised-button style="background-color: green;color:white">Add Amount</button>
+              <button (click)="CancelAddMoney()" mat-raised-button style="background-color: orangered;color:white;margin-left: 5px">Cancle</button>
+            </form>   
+  
+  </mat-card>
+
+</div>
+<!-- <div *ngFor="let post of actualPosts">
+  <mat-card style="background-color:green;color: white ">ID:{{post.id}}</mat-card>
+  <mat-card style="background-color:purple;color: white ">Title {{post.title}}</mat-card>
+  <mat-card style="background-color:orangered;color: white" >Content: {{post.body}}</mat-card>    
+    
+ 
+
+</div> -->

@@ -1,0 +1,18 @@
+
+  <div class="container-fluid">
+    <div class="row">
+      <div *ngFor='let product of products' class="col-sm-3 col-md-3 col-lg-3">
+          
+         <div  class="card" >
+          
+            <img class="card-img-top" src={{product.productImage}} alt="Card image" >
+             <div class="card-body">
+               <!-- <img src={{product.productImage}} alt=""> -->
+             
+               <a href="#" class="btn btn-primary">Activate Product</a>
+               <a href="#" class="btn btn-primary">Remove Product</a>
+             </div>
+           </div>
+      </div>
+    </div>
+  </div>

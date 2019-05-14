@@ -1,0 +1,28 @@
+.userDetailsLable{
+    font-weight: bold;
+    margin-left: 20px;
+    
+
+}
+.userDetailsValue{
+    font-weight: lighter;
+    margin-left: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.dataTabes{
+    width: 50%;
+    margin-left: 25px;
+}
+.userCard{
+    width: 80%;
+    margin-left:50px;
+    margin-top: 20px;
+}
+.userCard{
+    margin-left: 200px;
+    margin-top:50px;
+}
+.formField{
+    font-size: 20px;
+    font-weight: bold;
+}

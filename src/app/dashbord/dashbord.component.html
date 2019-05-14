@@ -1,0 +1,60 @@
+<mat-card style=" background-color:rgba(46, 15, 104, 0.972);width:100%">
+<mat-toolbar class="tollbarStyle" >
+  <mat-toolbar-row >
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" style="color:white">
+      <mat-icon >menu</mat-icon>
+    </button>
+    <span style="color:white">Seller Dashbord</span>
+    <span class="example-spacer"></span>
+   
+    <button (click)="logOutt()" mat-mini-fab style="background-color: rgba(46, 15, 104, 0.972)">
+        <mat-icon matBadge="15" matBadgeColor="warn"  class="example-icon toolBarIconSpace" aria-hidden="false" aria-label="Example user verified icon">notification_important <span>notification</span></mat-icon>
+    </button>
+    <!-- <mat-icon matBadge="5" matBadgeColor="warn" class="example-icon toolBarIconSpace" aria-hidden="false" aria-label="Example user verified icon">shopping_basket</mat-icon> -->
+    <button (click)="orders()" mat-mini-fab style="background-color: rgba(46, 15, 104, 0.972)">
+        <mat-icon matBadge="5" matBadgeColor="warn" class="example-icon toolBarIconSpace" aria-hidden="false" aria-label="Example user verified icon">shopping_basket</mat-icon>
+    </button>
+    <!-- <mat-icon   aria-hidden="false" class="example-icon toolBarIconSpace"(click)="logOutt()">exit_to_app</mat-icon> -->
+    <button (click)="logOut()" mat-mini-fab style="background-color: rgba(46, 15, 104, 0.972)">
+        <mat-icon  aria-label="Example icon-button with a heart icon">exit_to_app</mat-icon>
+    </button>
+   
+    
+    <!-- <span  class="example-icon toolBarIconSpace">logout</span> -->
+    <!-- <span><img src="E:\angularProjects\foodfest\src\assets\bakground3.jpg" alt="Avatar" style="width:200px" class="profileImage"></span> -->
+    <!-- <span><img src="https://i.kinja-img.com/gawker-media/image/upload/gd8ljenaeahpn0wslmlz.jpg" class="image--cover"></span> -->
+    <!-- <span><img src="./assets/devglan.png"></span> -->
+  </mat-toolbar-row>
+</mat-toolbar>
+</mat-card>
+
+<mat-sidenav-container class="example-container">
+  
+  <mat-sidenav #drawer mode="side" opened role="navigation" class="sidenavcontainer" style="overflow-x:hidden">
+    
+    <mat-list>
+        <img src="https://i.kinja-img.com/gawker-media/image/upload/gd8ljenaeahpn0wslmlz.jpg" class="image--cover">
+      
+      <mat-card class="sidenavTabs">
+      <a mat-list-item routerLink='userData' style="color:rebeccapurple"><mat-icon>person</mat-icon>
+        user</a>
+    </mat-card>
+    <mat-card class="sidenavTabs">
+       <a mat-list-item routerLink='products' style="color:rebeccapurple"> <mat-icon>local_grocery_store</mat-icon> Produts</a>
+        <!-- <a mat-list-item routerLink='second'><img style="height:30px;width:25px;color:rebeccapurple" ><mdb-icon fab icon="500px"></mdb-icon> Productes</a>
+        <md-icon md-font-icon="android" alt="android"></md-icon>
+       -->
+    </mat-card>
+    <mat-card class="sidenavTabs">
+      
+        <a mat-list-item routerLink='wallet' style="color:rebeccapurple"><mat-icon>account_balance_wallet</mat-icon> wallet</a>
+        
+      </mat-card>
+    </mat-list>
+  
+  </mat-sidenav>
+  <mat-sidenav-content style="overflow-x: hidden" >
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

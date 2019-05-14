@@ -1,0 +1,279 @@
+<!-- 
+  <div class="form-container">
+    <mat-card (mouseover)="over()" (mouseleave)="leave()" class="cardStyle" [class.matcardShadow]="matcardClass">
+        <mat-card-header class="heading1">Seller Registration 
+        </mat-card-header>
+        <mat-card-content class="matcartontent">
+          <form [formGroup]="registration">
+            <mat-form-field appearance="standard" class="matInputField">
+                <mat-label class="fieldLable">* First Name</mat-label>
+                <input type="text" matInput placeholder="Enter First Name" formControlName="firstName" class="fieldLable">
+                <mat-icon matSuffix class="fieldIco">person</mat-icon>
+                <mat-error *ngIf="hasError('firstName', 'required')" class="alert alert-danger">First Name is required</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="standard" class="matInputField">
+                <mat-label class="fieldLable">* Mobile Number</mat-label>
+                <input type="number" matInput placeholder="Enter Mobile Number" formControlName="mobileNumber" class="fieldLable">
+                <mat-icon matSuffix class="fieldIco">call</mat-icon>
+                <mat-error *ngIf="hasError('mobileNumber', 'required')" class="alert alert-danger">Mobile Number is Required</mat-error>
+                <mat-error *ngIf="hasError('mobileNumber', 'max')" class="alert alert-danger">Cannot enter more than 10 numbers</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="standard" class="matInputField">
+                  <mat-label class="fieldLable">* Email Address</mat-label>
+                  <input type="email" matInput placeholder="Enter Email" formControlName="email" class="fieldLable">
+                  <mat-icon matSuffix class="fieldIco">email</mat-icon>
+                  <mat-error *ngIf="hasError('email', 'required')" class="alert alert-danger">Address is required</mat-error>
+                  <mat-error *ngIf="hasError('email', 'email')" class="alert alert-danger">Enter Correct Email Address</mat-error>
+                </mat-form-field>
+            <mat-form-field appearance="standard" class="matInputField">
+                <mat-label class="fieldLable">* Password</mat-label>
+                <input type="{{passwordFieldType}}" matInput placeholder="Enter Password" formControlName="password" class="fieldLable">
+                <mat-icon (click)="onClickShowPassword()" *ngIf="visibility_Of" matSuffix class="fieldIco">visibility_off</mat-icon>
+                <mat-icon (click)="onClickHidePassword()" *ngIf="visibility" matSuffix class="fieldIco">visibility</mat-icon>
+                <mat-error *ngIf="hasError('password', 'required')" class="alert alert-warning">Password is required</mat-error>
+                <mat-error *ngIf="hasError('password', 'pattern')" class="alert alert-danger">Password should contain atlest one [a-z],[A-Z],[0-9],[\]</mat-error>
+            </mat-form-field>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+          <button [disabled]="!registration.valid" mat-button  style="background-color:orange; color:white" >Register</button>
+          <a routerLink="/sellerLogin" mat-button style="background-color:orangered;color:white">sellerLogin</a>
+          <!-- <button mat-button style="background-color:orangered;color:white">Register</button> -->
+          <!-- <button routerLink="/sellerForgotPassword" mat-button style="background-color:SlateBlue; color:white">Forgot Password</button>
+        </mat-card-actions>
+      </mat-card>
+    </div> --> 
+    <div>
+    <div class="center">
+      <mat-card  (mouseover)="over()" (mouseleave)="leave()"  [class.matcardShadow]="matcardClass">
+      
+          <mat-card-title style="text-align: center;color:#e91e63;font-size: 30px">Seller Registration <mat-icon matSuffix style="font-size :50px;color:#e91e63">account_box</mat-icon>	</mat-card-title>	
+          
+      <div   class="container-fluid" >
+          <form [formGroup]="registration">
+        <div class="row">
+          <div class="col-12">
+            <mat-card>
+                <mat-card-subtitle style="color:#e91e63;font-size: 15px">Restaurent Details <mat-icon matSuffix style="font-size :20px;color:#e91e63">restaurant</mat-icon></mat-card-subtitle>	
+                <div class="row">
+                  <div class=col-6>
+                      <mat-form-field style="width:100%" appearance="standard">
+                          <mat-label >* Restaurant Name</mat-label>
+                          <input type="text" matInput placeholder="Enter Restaurent Name" formControlName="restaurantName">
+                          <mat-icon matSuffix class="fieldIco" >restaurant</mat-icon>
+                          <mat-error *ngIf="hasError('restaurantName', 'required')" class="alert alert-danger">Restaurant Name is required</mat-error>
+                      </mat-form-field>
+                      <mat-form-field style="width:100%" appearance="standard">
+                          <mat-label >* Tin Number</mat-label>
+                          <input type="text" matInput placeholder="Enter Tin Number" formControlName="tinNumber">
+                          <mat-icon matSuffix class="fieldIco">#</mat-icon>
+                          <mat-error *ngIf="hasError('tinNumber', 'required')" class="alert alert-danger">Tin Number is required</mat-error>
+                      </mat-form-field>
+                      <!-- <mat-form-field style="width:100%" appearance="standard">
+                          <mat-label >* Restaurent Type</mat-label>
+                          <input type="text" matInput placeholder="Enter Restaurent Type" formControlName="restaurentType">
+                          <mat-icon matSuffix class="fieldIco">local_dining</mat-icon>
+                          <mat-error *ngIf="hasError('restaurentType', 'required')" class="alert alert-danger">Restaurent Type is required</mat-error>
+                      </mat-form-field> -->
+                      <mat-form-field style="width:100%" appearance="standard">
+                          <mat-label>* Restaurent Type</mat-label>
+                          <mat-select [(ngModel)]="selectedValue" name="restaurent Type" placeholder="Select Type" formControlName="restaurentType">
+                            <mat-option *ngFor="let  restaurentType of  restaurentTypes" [value]=" restaurentType.value" >
+                              {{ restaurentType.viewValue}}
+                            </mat-option>
+                          </mat-select>
+                          <mat-icon matSuffix class="fieldIco">local_dining</mat-icon>
+                          <mat-error *ngIf="hasError('gender', 'required')" class="alert alert-danger">Restaurent Type is required</mat-error>
+                        </mat-form-field>
+                      <!-- <mat-form-field style="width:100%" appearance="standard">
+                          <mat-label >* Mobile Number</mat-label>
+                          <input type="text" matInput placeholder="Enter Mobile Number" formControlName="mobileNumber">
+                          <mat-icon matSuffix class="fieldIco">contact_phone</mat-icon>
+                          <mat-error *ngIf="hasError('mobileNumber', 'required')" class="alert alert-danger">Mobile Number is required</mat-error>
+                          <mat-error *ngIf="hasError('mobileNumber', 'maxLength')" class="alert alert-danger">Mobile Number should contain onley numbers and length 10</mat-error>
+                      </mat-form-field> -->
+
+                  </div>
+                  <div class="col-6">
+                      <mat-form-field style="width:100%" appearance="standard">
+                          <mat-label >* Mobile Number</mat-label>
+                          <input type="text" matInput placeholder="Enter Mobile Number" formControlName="mobileNumber">
+                          <mat-icon matSuffix class="fieldIco">contact_phone</mat-icon>
+                          <mat-error *ngIf="hasError('mobileNumber', 'required')" class="alert alert-danger">Mobile Number is required</mat-error>
+                          <mat-error *ngIf="hasError('mobileNumber', 'maxLength')" class="alert alert-danger">Mobile Number should contain onley numbers and length 10</mat-error>
+                      </mat-form-field>
+                      <mat-form-field style="width:100%" appearance="standard">
+                          <mat-label >* Email</mat-label>
+                          <input type="text" matInput placeholder="Enter Email" formControlName="email">
+                          <mat-icon matSuffix class="fieldIco">email</mat-icon>
+                          <mat-error *ngIf="hasError('email', 'required')" class="alert alert-danger">Email is required</mat-error>
+                          <mat-error *ngIf="hasError('email', 'email')" class="alert alert-danger">Enter Correct Email Address</mat-error>
+                      </mat-form-field>
+                      <!-- <mat-form-field style="width:100%" appearance="standard">
+                          <mat-label >* User Name</mat-label>
+                          <input type="text" matInput placeholder="Enter User Name" formControlName="userName">
+                          <mat-icon matSuffix class="fieldIco">person</mat-icon>
+                          <mat-error *ngIf="hasError('userName', 'required')" class="alert alert-danger">User Name is required</mat-error>
+                      </mat-form-field> -->
+                      <mat-form-field style="width:100%" appearance="standard" >
+                          <mat-label class="fieldLable">* Password</mat-label>
+                          <input type="{{passwordFieldType}}" matInput placeholder="Enter Password" formControlName="password">
+                          <mat-icon (click)="onClickShowPassword()" *ngIf="visibility_Of" matSuffix class="fieldIco">visibility_off</mat-icon>
+                          <mat-icon (click)="onClickHidePassword()" *ngIf="visibility" matSuffix class="fieldIco">visibility</mat-icon>
+                          <mat-error *ngIf="hasError('password', 'required')" class="alert alert-warning">Password is required</mat-error>
+                          <mat-error *ngIf="hasError('password', 'pattern')" class="alert alert-danger">Password lenth should contain atlest 8 to 30 cahr with one caps small and number[a-z],[A-Z],[0-9],</mat-error>
+                      </mat-form-field>
+                     
+                  </div>
+                </div>	
+                
+            </mat-card>
+              </div>
+              
+              <div style="padding-top: 13px;padding-left: 12px;padding-right: 12px" class="row">
+                
+                <div class="col-12">
+                  
+                  <div class="row">
+                    <div class="col-6">
+                      <mat-card>
+                          <mat-card-subtitle style="color:#e91e63;font-size: 15px">Restruent Address <mat-icon matSuffix style="font-size :20px;color:#e91e63">home</mat-icon>	</mat-card-subtitle>	
+                        <mat-form-field style="width:100%" appearance="standard">
+                            <mat-label >* House Number</mat-label>
+                            <input type="text" matInput placeholder="Enter House Number" formControlName="houseNumber">
+                            <mat-icon matSuffix class="fieldIco">home</mat-icon>
+                            <mat-error *ngIf="hasError('houseNumber', 'required')" class="alert alert-danger">House Number is required</mat-error>
+                        </mat-form-field>
+                        <mat-form-field style="width:100%" appearance="standard">
+                            <mat-label >* Flat Number</mat-label>
+                            <input type="text" matInput placeholder="Enter Flat Number" formControlName="flatNumber">
+                            <mat-icon matSuffix class="fieldIco">business</mat-icon>
+                            <mat-error *ngIf="hasError('flatNumber', 'required')" class="alert alert-danger">Flat Number is required</mat-error>
+                        </mat-form-field>
+                        <mat-form-field style="width:100%" appearance="standard">
+                            <mat-label >*City</mat-label>
+                            <input type="text" matInput placeholder="Enter City Name" formControlName="city">
+                            <mat-icon matSuffix class="fieldIco">location_city</mat-icon>
+                            <mat-error *ngIf="hasError('firstName', 'required')" class="alert alert-danger">First Name is required</mat-error>
+                        </mat-form-field>
+                        <mat-form-field style="width:100%" appearance="standard">
+                            <mat-label >* Area</mat-label>
+                            <input type="text" matInput placeholder="Enter Area" formControlName="area">
+                            <mat-icon matSuffix class="fieldIco">location_on</mat-icon>
+                            <mat-error *ngIf="hasError('city', 'required')" class="alert alert-danger">City is required</mat-error>
+                        </mat-form-field>
+                        <mat-form-field style="width:100%" appearance="standard">
+                            <mat-label >*Pincode</mat-label>
+                            <input type="text" matInput placeholder="Enter Pincode" formControlName="restaurentPincode">
+                            <mat-icon matSuffix class="fieldIco">local_post_office</mat-icon>
+                            <mat-error *ngIf="hasError('restaurentPincode', 'required')" class="alert alert-danger">Pin Code is required</mat-error>
+                        </mat-form-field>
+
+                      </mat-card>
+                    </div>
+                    <div class="col-6">
+                      <mat-card>
+                        <div class="row">
+                          <div class="col-12">
+                          <mat-card-subtitle style="color:#e91e63;font-size:15px">Restruent Owner Details <mat-icon matSuffix style="font-size :20px;color:#e91e63">person</mat-icon></mat-card-subtitle>
+                          <div class="row">
+                            <div class="col-6">
+                        <mat-form-field style="width:100%" appearance="standard">
+                            <mat-label >* Owner Name</mat-label>
+                            <input type="text" matInput placeholder="Enter First Name" formControlName="ownerName">
+                            <mat-icon matSuffix class="fieldIco">person</mat-icon>
+                            <mat-error *ngIf="hasError('ownerName', 'required')" class="alert alert-danger">Owner Name is required</mat-error>
+                        </mat-form-field>
+                        <mat-form-field style="width:100%" appearance="standard">
+                            <mat-label >* Owner Dob</mat-label>
+                            <input matInput [matDatepicker]="picker" placeholder="Enter Dob" formControlName="ownerDob">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                            <mat-error *ngIf="hasError('ownerDob', 'required')" class="alert alert-danger">Owner Date of Birth is required</mat-error>
+                          </mat-form-field>
+                        <!-- <mat-form-field style="width:100%" appearance="standard">
+                            <mat-label >* Gender</mat-label>
+                            <input type="text" matInput placeholder="Enter Gender" formControlName="ownerGender">
+                            <mat-icon matSuffix class="fieldIco">wc</mat-icon>
+                            <mat-error *ngIf="hasError('firstName', 'required')" class="alert alert-danger">First Name is required</mat-error>
+                        </mat-form-field> -->
+                        <mat-form-field style="width:100%" appearance="standard">
+                            <mat-label>Gender</mat-label>
+                            <mat-select [(ngModel)]="selectedValue" name="gender" placeholder="Enter Gender" formControlName="gender">
+                              <mat-option *ngFor="let gender of genders" [value]="gender.value" >
+                                {{gender.viewValue}}
+                              </mat-option>
+                            </mat-select>
+                            <mat-icon matSuffix class="fieldIco">wc</mat-icon>
+                            <mat-error *ngIf="hasError('gender', 'required')" class="alert alert-danger">Gender is required</mat-error>
+                          </mat-form-field>
+                        <mat-form-field style="width:100%" appearance="standard">
+                            <mat-label >* Adhar Number</mat-label>
+                            <input type="text" matInput placeholder="Enter Adhar Number" formControlName="adharNumber">
+                            <mat-icon matSuffix class="fieldIco">security</mat-icon>
+                            <mat-error *ngIf="hasError('adharNumber', 'required')" class="alert alert-danger">Adhar Number is required</mat-error>
+                        </mat-form-field>
+                        <mat-form-field style="width:100%" appearance="standard">
+                            <mat-label >* Mobile Number</mat-label>
+                            <input type="text" matInput placeholder="Mobile Number" formControlName="ownerMobileNumber">
+                            <mat-icon matSuffix class="fieldIco">contact_phone</mat-icon>
+                            <mat-error *ngIf="hasError('ownerMobileNumber', 'required')" class="alert alert-danger">Mobile Number is required</mat-error>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-6">
+                          <mat-form-field style="width:100%" appearance="standard">
+                              <mat-label >* House Number</mat-label>
+                              <input type="text" matInput placeholder="House Number" formControlName="ownerHouseNumber">
+                              <mat-icon matSuffix class="fieldIco">home</mat-icon>
+                              <mat-error *ngIf="hasError('ownerHouseNumber', 'required')" class="alert alert-danger">House Number is required</mat-error>
+                          </mat-form-field>
+                          <mat-form-field style="width:100%" appearance="standard">
+                              <mat-label >* Flat Number</mat-label>
+                              <input type="text" matInput placeholder="Flat Number" formControlName="ownerFlatNumber">
+                              <mat-icon matSuffix class="fieldIco">business</mat-icon>
+                              <mat-error *ngIf="hasError('ownerFlatNumber', 'required')" class="alert alert-danger">Flat Number is required</mat-error>
+                          </mat-form-field>
+                          <mat-form-field style="width:100%" appearance="standard">
+                              <mat-label >*City</mat-label>
+                              <input type="text" matInput placeholder="Enter City Name" formControlName="ownerCityName">
+                              <mat-icon matSuffix class="fieldIco">location_city</mat-icon>
+                              <mat-error *ngIf="hasError('ownerCityName', 'required')" class="alert alert-danger">City is required</mat-error>
+                          </mat-form-field>
+                          <mat-form-field style="width:100%" appearance="standard">
+                              <mat-label >* Area</mat-label>
+                              <input type="text" matInput placeholder="Enter Area" formControlName="ownerArea">
+                              <mat-icon matSuffix class="fieldIco">location_on</mat-icon>
+                              <mat-error *ngIf="hasError('ownerArea', 'required')" class="alert alert-danger">Area is required</mat-error>
+                          </mat-form-field>
+                          <mat-form-field style="width:100%" appearance="standard">
+                              <mat-label >*Pincode</mat-label>
+                              <input type="text" matInput placeholder="Enter pincode" formControlName="ownerPincode">
+                              <mat-icon matSuffix class="fieldIco">local_post_office</mat-icon>
+                              <mat-error *ngIf="hasError('ownerPincode', 'required')" class="alert alert-danger">Pin Code is required</mat-error>
+                          </mat-form-field>
+                      </div>
+                    </div>
+                        </div>
+                      </div>
+                      </mat-card>
+                    </div>
+
+                  </div>
+                
+                </div>
+              
+              </div>
+            
+                
+          </div>
+          <mat-card-actions>
+              <button [disabled]="!registration.valid" mat-button  style="background-color:orange; color:white" >Register</button>
+              <a routerLink="/sellerLogin" mat-button style="background-color:orangered;color:white">sellerLogin</a>
+              <!-- <button mat-button style="background-color:orangered;color:white">Register</button> -->
+               <button routerLink="/sellerForgotPassword" mat-button style="background-color:SlateBlue; color:white">Forgot Password</button>
+            </mat-card-actions>
+        </form>
+      </div>
+    </mat-card>
+    </div>
+    </div>

@@ -1,0 +1,81 @@
+
+  .cardStyle{
+    /* margin:auto;
+    display: inline-block;
+    position: absolute;
+    top: 167px;
+    left:498px;
+    width: 400px;
+    */
+
+    font-family: Helvetica, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        min-width: 20rem;
+        padding: 2rem 4rem;
+        margin: 3.5rem 0;
+        padding-bottom: 0;
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
+        font-size: 1.6rem;
+        width: 500px;
+        /* box-shadow: 9px 13px 7px 0px rgba(0, 0, 0, 0.4); */
+        border: 1px solid transparent;
+        border-radius: 1px;
+        
+    /* margin-block-start: 150px;
+    margin-inline-start: 450px; */
+  }
+  
+  .heading1{
+    font-weight: bold;
+    font-size: 30px;
+    margin-left: 16px;
+    color:#e91e63 ;
+  
+}
+.matcartontent{
+widows: 100%;
+padding:17px;
+}
+.form-container {
+  min-height: 100%;
+  min-width:25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.matInputField{
+  width:100%;
+  /* font-size:25px; */
+    color:#7e787a;
+    
+
+}
+  .fieldIco{
+    /* font-size: 50px;
+    margin-right: 20px; */
+    color:#7e787a;
+    cursor: pointer;
+  }
+  .fieldLable{
+    color:black;
+  }
+  .matcardShadow{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .body{
+    background-color: white;
+  }
+  .mat-card>.mat-card-actions:last-child {
+    margin-bottom: 8px;
+    padding-bottom: 0;
+    display: inline-flex;
+}
+.mat-card-header {
+    display: flex;
+     flex-direction: row; 
+    display: contents;
+}

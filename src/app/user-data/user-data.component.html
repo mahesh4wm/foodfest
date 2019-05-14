@@ -1,0 +1,63 @@
+<div class="container" *ngIf="userView" >
+  <div class="row">
+    <div class="col-12 userCard">
+      <div class="card text-center w-50" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <div class="card-header" style="background-color:rgb(255, 71, 5)">
+        <h1 style="color:white">User Details <span><mat-icon style="font-size:50px">account_circle</mat-icon></span></h1>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-6 text-right">
+              <p style="font-weight:bold">firstName</p>
+              <p style="font-weight:bold">lastName</p>
+              <p style="font-weight:bold">fullName</p>
+              <p style="font-weight:bold">sex</p>
+              <p style="font-weight:bold">age</p>
+            </div>
+            <div class="col-6 text-left">
+                <p style="font-size: 18px">:{{oldUser.firstName}}</p>
+                <p style="font-size: 18px">:{{oldUser.lastName}}</p>
+                <p style="font-size: 18px">:{{oldUser.fullName}}</p>
+                <p style="font-size: 18px">:{{oldUser.sex}}</p>
+                <p style="font-size: 18px">:{{oldUser.age}}</p>
+            </div>
+            <button mat-fab style="background-color:orangered" >
+                <mat-icon (click)="openEditView()">edit</mat-icon>
+              </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="userEditView" style="width:500px;">
+    <div class="col-12" style="margin-left:350px;margin-top:50px" >
+        <div class="card text-center" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+          <div class="card-title" style="background-color: orangered;color:white">
+            <h1 style="font-size:60px">Edit User Details</h1>
+          </div>
+          <div class="card-body">    
+      <form >
+     <mat-form-field style="width:100%;"class="formField">  
+          <input class="formField" style="font-weight:light" id="ts" name="fname" matInput placeholder="First Name" [(ngModel)]="user.firstName" >
+        </mat-form-field>
+        <mat-form-field class="formField" style="width:100%">
+            <input id="ts" name="lname" matInput placeholder="Last Name" [(ngModel)]="user.lastName" >
+        </mat-form-field>
+        <mat-form-field class="formField" style="width:100%">
+            <input id="ts" name="age" matInput placeholder="Age" [(ngModel)]="user.age" >
+        </mat-form-field>
+        <mat-form-field class="formField" style="width:100%">
+            <input id="ts" name="sex" matInput placeholder="Sex" [(ngModel)]="user.sex">
+        </mat-form-field>
+      </form>
+      <div style="float:right">
+      <button mat-raised-button style="background-color: green;color:white"  (click)="update(user.firstName,user.age)">Update</button>
+      <button style="margin-left:5px;background-color: orangered;color:white" mat-raised-button color="warn" (click)="cancle()">Cancle</button>
+      </div>
+      </div>
+  </div>
+    </div>
+</div>
+

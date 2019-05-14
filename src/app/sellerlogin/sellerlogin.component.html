@@ -1,0 +1,38 @@
+<div class="form-container">
+  
+
+<mat-card (mouseover)="over()" (mouseleave)="leave()" class="cardStyle" [class.matcardShadow]="matcardClass">
+    <mat-card-header class="heading1">Login
+      <!-- <div>
+        <button mat-button>Seller Login</button>
+        <button mat-button>Buyer Login</button>
+      </div> -->
+    </mat-card-header>
+    <mat-card-content class="matcartontent">
+      <form [formGroup]="userLogin">
+        <mat-form-field appearance="standard" class="matInputField">
+            <mat-label class="fieldLable">*Email</mat-label>
+            <input type="email" matInput placeholder="Enter Email" formControlName="email" class="fieldLable">
+            <mat-icon matSuffix 	class="fieldIco">email</mat-icon>
+            <mat-error *ngIf="hasError('email', 'required')" class="alert alert-warning">Address is required</mat-error>
+            <mat-error *ngIf="hasError('email', 'email')" class="alert alert-warning">Enter Correct Email Address</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="standard" class="matInputField">
+            <mat-label class="fieldLable">*Password</mat-label>
+            <input type="{{passwordFieldType}}" matInput placeholder="Enter Password" formControlName="password" class="fieldLable">
+            <mat-icon (click)="onClickShowPassword()" *ngIf="visibility_Of" matSuffix 	class="fieldIco">visibility_off</mat-icon>
+            <mat-icon (click)="onClickHidePassword()" *ngIf="visibility" matSuffix 	class="fieldIco">visibility</mat-icon>
+            <mat-error *ngIf="hasError('password', 'required')" class="alert alert-warning">Password is required</mat-error>
+            <mat-error *ngIf="hasError('password', 'pattern')" class="alert alert-warning">Password should contain atlest one [a-z],[A-Z],[0-9],[\]</mat-error>
+          </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button [disabled]="!userLogin.valid" (click)="loginSubmit()" mat-button style="background-color:orange; color:white" >Login</button>
+      <a routerLink="/sellerRegistration" mat-button style="background-color:orangered;color:white">Registration</a>
+      <!-- <button mat-button style="background-color:orangered;color:white">Register</button> -->
+      <a routerLink="/sellerForgotPassword" mat-button style="background-color:SlateBlue; color:white">Registration</a>
+      <!-- <button mat-button style="background-color:SlateBlue; color:white">Forgot Password</button> -->
+    </mat-card-actions>
+  </mat-card>
+</div>
